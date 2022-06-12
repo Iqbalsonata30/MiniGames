@@ -1,4 +1,5 @@
 const username = document.getElementById('username');
+const Title = document.getElementById('title');
 const registerForm = document.getElementById('registerForm');
 const logoutForm = document.getElementById('logout');
 const startSession = document.getElementById('start');
@@ -65,6 +66,7 @@ onload = ()=>{
     profileName.innerText = 'Hi, '+sessionStorage.getItem('Username');
     navigation.appendChild(nama);
     navigation.appendChild(profileName);
+    Title.innerText = 'Welcome '+sessionStorage.getItem('Username');
     registerForm.style.display ='none';
     logoutForm.style.display ='block';
   }else{
