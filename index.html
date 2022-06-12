@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Mini Games</title>
-  </head>
-  <body>
-    <section id="home">
-      <div class="container">
-        <div class="navwrapper">
-          <ul class="navigation">
-            <li class="nav">
-              <a href="#home" class="navlink">HOME</a>
-            </li>
-            <li class="nav">
-              <a href="#start" class="navlink">START</a>
-            </li>
-            <li class="nav">
-              <a href="#reward" class="navlink">REWARD</a>
-            </li>
-          </ul>
-        </div>
-        <div class="contentwrapper">
-          <div class="title" id="title">Register Here</div>
-          <div id="registerForm">
-            <input type="text" name="username" placeholder="Masukkan Username" id="username" />
-            <button type="button" onclick="register()" id="register">Register</button>
-          </div>
-          <button type="button" onclick="Logout()" id="logout">Logout</button>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>Deacode - Template HTML Basic</title>
+</head>
+
+<body>
+  <section id="home">
+    <div class="container">
+      <!-- navigation bar start -->
+      <div class="navwrapper">
+        <ul class="navigation">
+          <li class="nav">
+            <a href="#home" class="navlink">HOME</a>
+          </li>
+          <li class="nav">
+            <a href="#start" class="navlink">START</a>
+          </li>
+          <li class="nav">
+            <a href="#reward" class="navlink">REWARD</a>
+          </li>
+        </ul>
       </div>
-    </section>
-    <section id="start">
-      <div class="container red">
-        <div class="gamewrapper">
+      <div class="contentwrapper">
+        <div class="title" id="title">Register Here</div>
+        <div id="registerForm">
+          <input type="text" placeholder="username" id="username" />
+          <button onclick="register()">Register</button>
+        </div>
+        <button onclick="logout()" id="logoutForm">Logout</button>
+      </div>
+    </div>
+  </section>
+  <section id="start">
+    <div class="container red">
+      <div class="gamewrapper">
         <div class="box" id="box1"></div>
         <div class="box" id="box2"></div>
         <div class="box" id="box3"></div>
-        </div>
-        <div class="buttonwrapper" >
-          <button class="startButton" type="button" onclick="start()">Start</button>
-        </div>
       </div>
-    </section>
-    <section id="reward">
-      <div class="container blue">
-        <div class="contentwrapper" id="imgReward"> 
-          <h1>REWARD BUAT ANDA </h1>
-        </div>
+      <div class="buttonwrapper">
+        <button class="startButton" onclick="start()">START</button>
       </div>
-    </section>
-    <div class="top" id="top" onclick="directing()">☝</div>
-    <script src="module/Player.js"></script>
-    <script src="init.js"></script>
-    <script>
-      function directing(){
-        location.href = "#home"
-      }
-    </script>
-  </body>
+    </div>
+  </section>
+  <section id="reward">
+    <div class="container blue">
+      <div class="contentwrapper" id="imgReward">
+        <h1>👇REWARD BUAT ANDA👇</h1>
+      </div>
+    </div>
+  </section>
+  <div class="top" id="top" onclick="directing()">☝</div>
+  <script>
+    function directing() {
+      location.href = "#home"
+    }
+  </script>
+  <script src="module/Player.js"></script>
+  <script src="init.js"></script>
+  <script src="module/Utilts.js"></script>
+</body>
+
 </html>
