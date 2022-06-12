@@ -2,6 +2,7 @@ const username = document.getElementById('username');
 const registerForm = document.getElementById('registerForm');
 const logoutForm = document.getElementById('logout');
 const startSession = document.getElementById('start');
+const navigation = document.getElementsByClassName('navigation')[0];
 const box1 = document.getElementById('box1')
 const box2 = document.getElementById('box2');
 const box3 = document.getElementById('box3');
@@ -58,6 +59,12 @@ const start = ()=>{
 onload = ()=>{
   const Session = sessionStorage.getItem('Username');
   if(Session  && Session != "null" ){
+    let nama = document.createElement('div');
+    let profileName = document.createElement('p');
+    profileName.classList.add('nav')
+    profileName.innerText = 'Hi, '+sessionStorage.getItem('Username');
+    navigation.appendChild(nama);
+    navigation.appendChild(profileName);
     registerForm.style.display ='none';
     logoutForm.style.display ='block';
   }else{

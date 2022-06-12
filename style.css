@@ -95,7 +95,7 @@ section {
 
 .navigation {
   display: flex;
-  justify-content: flex-start;
+  justify-content:flex-start;
   align-items: center;
   height: 100%;
 }
@@ -113,9 +113,11 @@ section {
   transition: all ease-in-out .25s;
 }
 
+
 .nav:hover>a {
   color: #222;
 }
+
 
 .navlink {
   color: white;
