@@ -35,7 +35,7 @@ function clearing() {
 
 function displaying() {
   title.textContent = "Hi, " + sessionStorage.getItem("token");
-  document.title = sessionStorage.getItem("token");
+  document.title = "MiniGames - "+sessionStorage.getItem("token");
   box1.textContent = default_option[0];
   box2.textContent = default_option[1];
   box3.textContent = default_option[2];
