@@ -17,7 +17,7 @@ let box2 = document.getElementById("box2");
 let box3 = document.getElementById("box3");
 let poin = 0;
 // score
-nilai.textContent = poin;
+
 
 const default_option = ["😱", "🤣", "😍"];
 function resetting() {

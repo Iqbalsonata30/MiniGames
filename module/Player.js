@@ -3,6 +3,7 @@ class Player {
     this._token = sessionStorage.getItem("token");
     this._isWin = false;
     this._gacha = [];
+    this._Score = 0;
   }
 
   set token(_token) {
@@ -35,6 +36,7 @@ class Player {
   get start() {
     const rolling = setInterval(() => {
       this.gacha = default_option;
+      nilai.textContent = this._Score;
       box1.textContent = this.gacha[0];
       box2.textContent = this.gacha[1];
       box3.textContent = this.gacha[2];
@@ -43,23 +45,38 @@ class Player {
     setTimeout(() => {
       clearInterval(rolling);
       const box = [box1.textContent, box2.textContent, box3.textContent];
+      this.scorePoin = box;
       this.winCheck = box;
+      nilai.textContent = this.scorePoin;
       this.winCheck ? this.reward : null;
     }, 3500);
   }
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {
-      console.log("matching!");
+      console.log('Matching');
       return (this._isWin = true);
     } else {
-      console.log("not match");
+      console.log("Not Matching");
       return (this._isWin = false);
     }
   }
 
   get winCheck() {
     return this._isWin;
+  }
+  
+  set scorePoin(box){
+    if (box[0] == box[1] && box[0] == box[2]) {
+      console.log(++this._Score);
+      return (this._Score);
+    } else {
+      console.log(this._Score);
+      return (this._Score);
+    }
+  }
+  get scorePoin(){
+    return this._Score;
   }
 
   get reward() {
