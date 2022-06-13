@@ -14,7 +14,7 @@ class Player {
   }
 
   set register(_username) {
-    const rand = ~~(Math.random() * _username.length*100);
+    const rand = ~~(Math.random() * _username.length * 100);
     const session = sessionStorage.setItem("token", `${_username}@${rand}`);
     return (this.token = session);
   }
