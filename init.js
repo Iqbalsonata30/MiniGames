@@ -2,7 +2,6 @@ const player = new Player();
 
 onload = () => {
   if (player.token && player.token != "") {
-    console.log("token: ", player.token);
     //use utils
     clearing();
     displaying();
@@ -14,7 +13,7 @@ onload = () => {
 
 function register() {
   //initiating
-  player.register = usernameInput.value;
+  player.register = username.value;
 
   //use utils
   clearing();

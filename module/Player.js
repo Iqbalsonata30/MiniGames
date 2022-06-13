@@ -14,8 +14,8 @@ class Player {
   }
 
   set register(_username) {
-    const rand = ~~(Math.random() * _username.length);
-    const session = sessionStorage.setItem("token", `${_username}-${rand}`);
+    const rand = ~~(Math.random() * _username.length*100);
+    const session = sessionStorage.setItem("token", `${_username}@${rand}`);
     return (this.token = session);
   }
 
@@ -70,6 +70,7 @@ class Player {
         img.src = data.image_link;
         imgReward.appendChild(img);
         rewardSection.style.display = "block";
+        rewardNavbar.style.display = "block";
         setTimeout(() => {
           location.href = "#reward";
         }, 1000);

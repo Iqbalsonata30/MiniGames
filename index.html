@@ -19,10 +19,10 @@
             <a href="#home" class="navlink">HOME</a>
           </li>
           <li class="nav">
-            <a href="#start" class="navlink">START</a>
+            <a href="#start" class="navlink" id="startNavbar">START</a>
           </li>
           <li class="nav">
-            <a href="#reward" class="navlink">REWARD</a>
+            <a href="#reward" class="navlink" id="rewardNavbar">REWARD</a>
           </li>
         </ul>
       </div>
@@ -32,7 +32,7 @@
           <input type="text" placeholder="username" id="username" />
           <button onclick="register()">Register</button>
         </div>
-        <button onclick="logout()" id="logoutForm">Logout</button>
+        <button onclick="logout()" id="logoutButton">Logout</button>
       </div>
     </div>
   </section>
@@ -55,7 +55,7 @@
       </div>
     </div>
   </section>
-  <div class="top" id="top" onclick="directing()">☝</div>
+  <div class="top" id="top" onclick="directing('#home',200)">☝</div>
   <script>
     function directing() {
       location.href = "#home"
