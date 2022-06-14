@@ -4,6 +4,8 @@ class Player {
     this._isWin = false;
     this._gacha = [];
     this._Score = 0;
+    this._normalRolling = 'normal';
+    this._quickRolling = 'quick';
   }
 
   set token(_token) {
@@ -28,12 +30,23 @@ class Player {
     }
     return (this._gacha = gacha);
   }
-
+  set normalRolling(param){
+    return (this._normalRolling = param);
+  }
+  get normalRolling(){
+    return this._normalRolling;
+  }
+  set quickRolling(param){
+    return (this._quickRolling = param);
+  }
+  get quickRolling(){
+    return this._quickRolling;
+  }
   get gacha() {
     return this._gacha;
   }
 
-  get start() {
+  get normal() {
     const rolling = setInterval(() => {
       this.gacha = default_option;
       nilai.textContent = this._Score;
@@ -41,18 +54,29 @@ class Player {
       box2.textContent = this.gacha[1];
       box3.textContent = this.gacha[2];
     }, 50);
-    console.log(this.stop);
-    setTimeout(() => {
-      clearInterval(rolling);
-      const box = [box1.textContent, box2.textContent, box3.textContent];
-      this.scorePoin = box;
-      this.winCheck = box;
-      nilai.textContent = this.scorePoin;
-      this.winCheck ? this.reward : null;
-    },3500);
+    if(this.normalRolling == 'normal' && this.quickRolling == 'quick' ){
+      setTimeout(() => {
+        clearInterval(rolling);
+        const box = [box1.textContent, box2.textContent, box3.textContent];
+        this._quickRolling = 'quick';
+        this.scorePoin = box;
+        this.winCheck = box;
+        nilai.textContent = this.scorePoin;
+        this.winCheck ? this.reward : null;
+      },3500);
+    }else if(this.quickRolling == 'Quick'){
+      setTimeout(() => {
+        clearInterval(rolling);
+        const box = [box1.textContent, box2.textContent, box3.textContent];
+        this._quickRolling = 'quick';
+        this.scorePoin = box;
+        this.winCheck = box;
+        nilai.textContent = this.scorePoin;
+        this.winCheck ? this.reward : null;
+      },100);
+    }
+
   } 
-
-
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {

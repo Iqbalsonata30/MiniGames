@@ -6,6 +6,7 @@ let logoutButton = document.getElementById("logoutButton");
 let startSection = document.getElementById("start");
 let rewardSection = document.getElementById("reward");
 let goTopSection = document.getElementById("top");
+const stopButton = document.getElementById("stop");
 const navbarName = document.getElementsByClassName("navigation")[0];
 const startNavbar = document.getElementsByClassName("nav")[1];
 const rewardNavbar = document.getElementsByClassName("nav")[2];

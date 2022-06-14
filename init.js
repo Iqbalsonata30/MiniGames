@@ -21,13 +21,13 @@ function register() {
   directing("#start", 1000);
 }
 
-function start(param) {
-  player.startRolling = param
-  player.start ;
+function normal(param) {
+  player.normalRolling = param
+  player.normal ;
 }
-function stop(param){
-  player.stopRolling = param;
-  player.start;
+function quick(param){
+  player.quickRolling = param;
+  player.normal;
 }
 
 function logout() {
