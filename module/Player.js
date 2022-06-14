@@ -66,7 +66,7 @@ class Player {
       });
     }else{
       swal({
-        title: "Score Anda Masih :"+this.scorePoin,
+        title: "Score Anda Masih : "+this.scorePoin,
         text: "Semangat ! Coba lagi.",
         icon: "info",
         button: "Yes",
@@ -99,8 +99,12 @@ class Player {
       .then((x) => x.json())
       .then((data) => {
         const img = new Image(200, 200);
+        let imageDetail = document.createElement('h1');
+        imageDetail.textContent = data.name;
+        imageDetail.classList.add('namaGambar');
         img.src = data.image_link;
         imgReward.appendChild(img);
+        imgReward.appendChild(imageDetail);
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
         setTimeout(() => {
