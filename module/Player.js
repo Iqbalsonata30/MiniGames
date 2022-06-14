@@ -54,9 +54,15 @@ class Player {
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {
-      console.log('Matching');
+      console.log("Matching");
       return (this._isWin = true);
     } else {
+      swal({
+        title: "Anda Kalah Cuy!",
+        text: "Silahkan Coba lagi!",
+        icon: "error",
+        button: "Yes",
+      });
       console.log("Not Matching");
       return (this._isWin = false);
     }
@@ -65,17 +71,17 @@ class Player {
   get winCheck() {
     return this._isWin;
   }
-  
-  set scorePoin(box){
+
+  set scorePoin(box) {
     if (box[0] == box[1] && box[0] == box[2]) {
       console.log(++this._Score);
-      return (this._Score);
+      return this._Score;
     } else {
       console.log(this._Score);
-      return (this._Score);
+      return this._Score;
     }
   }
-  get scorePoin(){
+  get scorePoin() {
     return this._Score;
   }
 
