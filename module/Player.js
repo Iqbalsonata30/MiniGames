@@ -57,12 +57,21 @@ class Player {
       console.log("Matching");
       return (this._isWin = true);
     } else {
-      swal({
+      if(this.scorePoin < 1){
+        swal({
         title: "Anda Kalah Cuy!",
         text: "Silahkan Coba lagi!",
         icon: "error",
         button: "Yes",
       });
+    }else{
+      swal({
+        title: "Score Anda Masih :"+this.scorePoin,
+        text: "Semangat ! Coba lagi.",
+        icon: "info",
+        button: "Yes",
+      });
+    }
       console.log("Not Matching");
       return (this._isWin = false);
     }
