@@ -4,7 +4,6 @@ class Player {
     this._isWin = false;
     this._gacha = [];
     this._Score = 0;
-    this._Stop = 100;
   }
 
   set token(_token) {
@@ -33,12 +32,7 @@ class Player {
   get gacha() {
     return this._gacha;
   }
-  set stop(stop){
-    return (this._Stop = stop);
-  }
-  get stop(){
-    return this._Stop;
-  }
+
   get start() {
     const rolling = setInterval(() => {
       this.gacha = default_option;

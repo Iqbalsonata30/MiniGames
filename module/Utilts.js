@@ -11,7 +11,6 @@ const startNavbar = document.getElementsByClassName("nav")[1];
 const rewardNavbar = document.getElementsByClassName("nav")[2];
 let imgReward = document.getElementById("imgReward");
 let nilai = document.getElementById("nilai");
-
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 let box3 = document.getElementById("box3");
