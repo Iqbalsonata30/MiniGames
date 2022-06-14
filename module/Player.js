@@ -80,7 +80,6 @@ class Player {
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {
-      console.log("Matching");
       return (this._isWin = true);
     } else {
       if(this.scorePoin < 1){
@@ -98,7 +97,6 @@ class Player {
         button: "Yes",
       });
     }
-      console.log("Not Matching");
       return (this._isWin = false);
     }
   }
