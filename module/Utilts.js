@@ -19,7 +19,7 @@ let poin = 0;
 // score
 
 
-const default_option = ["😱", "🤣", "😍"];
+const default_option = ["🍓", "🥭", "🍇"];
 function resetting() {
   startNavbar.style.display = "none";
   rewardNavbar.style.display = "none";

@@ -4,6 +4,7 @@ class Player {
     this._isWin = false;
     this._gacha = [];
     this._Score = 0;
+    this._Stop = 100;
   }
 
   set token(_token) {
@@ -32,7 +33,12 @@ class Player {
   get gacha() {
     return this._gacha;
   }
-
+  set stop(stop){
+    return (this._Stop = stop);
+  }
+  get stop(){
+    return this._Stop;
+  }
   get start() {
     const rolling = setInterval(() => {
       this.gacha = default_option;
@@ -41,7 +47,7 @@ class Player {
       box2.textContent = this.gacha[1];
       box3.textContent = this.gacha[2];
     }, 50);
-
+    console.log(this.stop);
     setTimeout(() => {
       clearInterval(rolling);
       const box = [box1.textContent, box2.textContent, box3.textContent];
@@ -49,8 +55,10 @@ class Player {
       this.winCheck = box;
       nilai.textContent = this.scorePoin;
       this.winCheck ? this.reward : null;
-    }, 3500);
-  }
+    },3500);
+  } 
+
+
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {

@@ -24,6 +24,9 @@ function register() {
 function start() {
   player.start;
 }
+function stop(stopTime){
+  player.stop = stopTime;
+}
 
 function logout() {
   player.logout();
