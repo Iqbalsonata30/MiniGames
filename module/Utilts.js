@@ -6,12 +6,12 @@ let logoutButton = document.getElementById("logoutButton");
 let startSection = document.getElementById("start");
 let rewardSection = document.getElementById("reward");
 let goTopSection = document.getElementById("top");
+const stopButton = document.getElementById("stop");
 const navbarName = document.getElementsByClassName("navigation")[0];
 const startNavbar = document.getElementsByClassName("nav")[1];
 const rewardNavbar = document.getElementsByClassName("nav")[2];
 let imgReward = document.getElementById("imgReward");
 let nilai = document.getElementById("nilai");
-
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 let box3 = document.getElementById("box3");
@@ -19,7 +19,10 @@ let poin = 0;
 // score
 
 
+
 const default_option = ["🍓","🥭","🍇"];
+
+
 function resetting() {
   startNavbar.style.display = "none";
   rewardNavbar.style.display = "none";
