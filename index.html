@@ -11,6 +11,7 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
 
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
   <!--font-->
   <link
     href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=New+Rocker&family=Oswald:wght@300&display=swap"
@@ -41,8 +42,8 @@
         <div class="title" id="title"></div>
         <div id="registerForm">
           <input type="text" class="regis" placeholder="username" id="username" />
-          <input type="password" class="paswrd" placeholder="password" id="password" />
-          <button type="button" class="btn btn-light" onclick="register()" id="dftr">Register</button>
+          <input type="password" class="paswrd " placeholder="password" id="password" />
+          <button type="button" class="btn btn-light " onclick="register()" id="dftr">Register</button>
         </div>
         <button type="button" class="btn btn-light" onclick="logout()" id="logoutButton">Logout</button>
       </div>
@@ -67,9 +68,14 @@
   </section>
   <section id="reward">
     <div class="blue">
-      <div class="contentwrapper" id="imgReward">
-        <h1>👇REWARD BUAT ANDA👇</h1>
-      </div>
+      <div class="imageWrapper">
+        <h1 class="titleReward">👇REWARD BUAT ANDA👇</h1>
+        <div class="swiper">
+          <div class="swiper-wrapper" id="imgReward">
+            <div class="swiper-slide"></div>
+          </div>
+  <div class="swiper-scrollbar"></div>
+    </div>
     </div>
   </section>
   <div class="top" id="top" onclick="directing('#home',200)">☝</div>
@@ -82,16 +88,37 @@
   <script src="init.js"></script>
   <script src="module/Utilts.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
-
   <script>
-    // Animamtion 
     gsap.registerPlugin(TextPlugin);
     gsap.from('.nav', { duration: 2, y: '-100%', opacity: 0, ease: 'bounce' });
     gsap.from('.wlc', { duration: 1.5, x: 50, opacity: 0, delay: 1, ease: 'back' });
     gsap.to('.title', { duration: 2, delay: 1.5, text: 'Ikan Lele Ikan Sepat, Daftar Cepat!' })
+  </script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+  const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
   </script>
 </body>
 

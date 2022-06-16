@@ -124,11 +124,16 @@ class Player {
       .then((data) => {
         const img = new Image(200, 200);
         let imageDetail = document.createElement('h1');
-        imageDetail.textContent = data.name;
+        let slideImage = document.getElementsByClassName('swiper-slide');
         imageDetail.classList.add('namaGambar');
+        img.setAttribute('class','swiper-slide');
         img.src = data.image_link;
-        imgReward.appendChild(img);
-        imgReward.appendChild(imageDetail);
+
+        for(let i =0;i<=this._Score;i++){
+          slideImage[i].style.backgroundImage = 'url('+img.src+')';
+          slideImage[i].style.backgroundSize = 'cover';
+          slideImage[i].style.backgroundRepeat = 'no-repeat';
+        };
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
         setTimeout(() => {
