@@ -30,16 +30,16 @@ class Player {
     }
     return (this._gacha = gacha);
   }
-  set normalRolling(param){
+  set normalRolling(param) {
     return (this._normalRolling = param);
   }
-  get normalRolling(){
+  get normalRolling() {
     return this._normalRolling;
   }
-  set quickRolling(param){
+  set quickRolling(param) {
     return (this._quickRolling = param);
   }
-  get quickRolling(){
+  get quickRolling() {
     return this._quickRolling;
   }
   get gacha() {
@@ -54,7 +54,7 @@ class Player {
       box2.textContent = this.gacha[1];
       box3.textContent = this.gacha[2];
     }, 50);
-    if(this.normalRolling == 'normal' && this.quickRolling == 'quick' ){
+    if (this.normalRolling == 'normal' && this.quickRolling == 'quick') {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
@@ -63,8 +63,8 @@ class Player {
         this.winCheck = box;
         nilai.textContent = this.scorePoin;
         this.winCheck ? this.reward : null;
-      },3500);
-    }else if(this.quickRolling == 'Quick'){
+      }, 3500);
+    } else if (this.quickRolling == 'Quick') {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
@@ -73,30 +73,30 @@ class Player {
         this.winCheck = box;
         nilai.textContent = this.scorePoin;
         this.winCheck ? this.reward : null;
-      },100);
+      }, 100);
     }
 
-  } 
+  }
 
   set winCheck(box) {
     if (box[0] == box[1] && box[0] == box[2]) {
       return (this._isWin = true);
     } else {
-      if(this.scorePoin < 1){
+      if (this.scorePoin < 1) {
         swal({
-        title: "Anda Kalah Cuy!",
-        text: "Silahkan Coba lagi!",
-        icon: "error",
-        button: "Yes",
-      });
-    }else{
-      swal({
-        title: "Score Anda Masih : "+this.scorePoin,
-        text: "Semangat ! Coba lagi.",
-        icon: "info",
-        button: "Yes",
-      });
-    }
+          title: "Anda Kalah Cuy!",
+          text: "Silahkan Depo lagi!",
+          icon: "error",
+          button: "Yes",
+        });
+      } else {
+        swal({
+          title: "Score Anda Masih : " + this.scorePoin,
+          text: "Semangat ! Coba lagi.",
+          icon: "info",
+          button: "Yes",
+        });
+      }
       return (this._isWin = false);
     }
   }
@@ -128,6 +128,7 @@ class Player {
         imageDetail.classList.add('namaGambar');
         img.src = data.image_link;
         imgReward.appendChild(img);
+        imgReward.appendChild(imageDetail);
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
         setTimeout(() => {

@@ -5,13 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Bootstrap & Css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
+
+  <!--font-->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=New+Rocker&family=Oswald:wght@300&display=swap"
+    rel="stylesheet">
+
   <title>MiniGames by Group 7</title>
 </head>
 
 <body>
   <section id="home">
-    <div class="container">
+    <div class="contain">
       <!-- navigation bar start -->
       <div class="navwrapper">
         <ul class="navigation">
@@ -27,19 +37,21 @@
         </ul>
       </div>
       <div class="contentwrapper">
-        <div class="title" id="title">Register Here</div>
+        <h1 class="wlc">Welcome To The Game Anak Bapak</h1>
+        <div class="title" id="title"></div>
         <div id="registerForm">
-          <input type="text" placeholder="username" id="username" />
-          <button onclick="register()">Register</button>
+          <input type="text" class="regis" placeholder="username" id="username" />
+          <input type="password" class="paswrd" placeholder="password" id="password" />
+          <button type="button" class="btn btn-light" onclick="register()" id="dftr">Register</button>
         </div>
-        <button onclick="logout()" id="logoutButton">Logout</button>
+        <button type="button" class="btn btn-light" onclick="logout()" id="logoutButton">Logout</button>
       </div>
     </div>
   </section>
   <section id="start">
-    <div class="container red">
+    <div class="red">
       <div class="score">
-        <h1>Score</h1>
+        <h1 class="scr">Score</h1>
         <div id="nilai"></div>
       </div>
       <div class="gamewrapper">
@@ -48,17 +60,15 @@
         <div class="box" id="box3"></div>
       </div>
       <div class="buttonwrapper">
-        <button class="startButton" onclick="normal('normal')">Normal Spin</button>
-        <button class="startButton" id="stop" onclick="quick('Quick')" >Quick Spin</button>
+        <button class="startButton" id="button1" onclick="normal('normal')">Normal Spin</button>
+        <button class="startButton" id="stop" onclick="quick('Quick')">Quick Spin</button>
       </div>
     </div>
   </section>
   <section id="reward">
-    <div class="container blue">
-      <h1 class="titleReward">👇REWARD BUAT ANDA👇</h1>
-      <div class="imagewrapper" >
-        <div class="image" id="imgReward">
-        </div>
+    <div class="blue">
+      <div class="contentwrapper" id="imgReward">
+        <h1>👇REWARD BUAT ANDA👇</h1>
       </div>
     </div>
   </section>
@@ -72,6 +82,17 @@
   <script src="init.js"></script>
   <script src="module/Utilts.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
+
+  <script>
+    // Animamtion 
+    gsap.registerPlugin(TextPlugin);
+    gsap.from('.nav', { duration: 2, y: '-100%', opacity: 0, ease: 'bounce' });
+    gsap.from('.wlc', { duration: 1.5, x: 50, opacity: 0, delay: 1, ease: 'back' });
+    gsap.to('.title', { duration: 2, delay: 1.5, text: 'Ikan Lele Ikan Sepat, Daftar Cepat!' })
+  </script>
 </body>
 
 </html>

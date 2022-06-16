@@ -23,9 +23,9 @@ function register() {
 
 function normal(param) {
   player.normalRolling = param
-  player.normal ;
+  player.normal;
 }
-function quick(param){
+function quick(param) {
   player.quickRolling = param;
   player.normal;
 }
