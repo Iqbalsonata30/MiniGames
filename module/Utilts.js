@@ -19,7 +19,6 @@ let poin = 0;
 // score
 
 
-
 const default_option = ["🍓","🥭","🍇"];
 
 

@@ -128,7 +128,6 @@ class Player {
         imageDetail.classList.add('namaGambar');
         img.src = data.image_link;
         imgReward.appendChild(img);
-        imgReward.appendChild(imageDetail);
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
         setTimeout(() => {
