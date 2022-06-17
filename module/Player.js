@@ -198,7 +198,6 @@ class Player {
         for(let i =0;i<=this._Score;i++){
           slideImage[i].style.backgroundImage = 'url('+img.src+')';
           slideImage[i].style.backgroundSize = 'cover';
-          slideImage[i].style.backgroundRepeat = 'no-repeat';
           slideImage[i].textContent = data.name;
           slideImage[i].style.fontSize = '30px';
           slideImage[i].style.color ='white';
