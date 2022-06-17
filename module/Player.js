@@ -211,6 +211,6 @@ class Player {
   }
 
   logout() {
-  this._token = sessionStorage.removeItem("token");
+   this._token = sessionStorage.removeItem("token");
   }
 }
