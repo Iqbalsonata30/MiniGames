@@ -110,17 +110,35 @@ section {
   border: 5px black;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
 }
+.boxStart{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
 .score {
   text-align: center;
   border: 2px solid shadow;
   width: 200px;
   height: 200px;
+  margin:0 10px;
   padding-top: 100px;
+}
+.saldo {
+  text-align: center;
+  border: 2px solid shadow;
+  width: 200px;
+  height: 200px;
+  padding-top: 100px;
+  margin:0 10px;
+}
+#saldo {
+  font-size: 30px;
+  color: azure;
 }
 
 #nilai {
-  font-size: 50px;
+  font-size: 30px;
   color: white;
 }
 
