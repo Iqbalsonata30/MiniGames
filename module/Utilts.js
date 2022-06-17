@@ -38,7 +38,7 @@ filSaldo.addEventListener('click',()=>{
   })
   .then((willDelete) => {
     if (willDelete) {
-      swal("Mengisi Saldo: \n 1x Spin = Rp.2000\n Jika saldo kurang dari 2000 akan dianggap habis", {
+      swal("  1x Spin = Rp.2000\n\tMinimal isi saldo Rp.2000 \n Jika saldo kurang dari 2000 akan dianggap habis", {
         content: "input",
       })
       .then((value) => {
@@ -47,7 +47,15 @@ filSaldo.addEventListener('click',()=>{
           sessionStorage.removeItem('token');
           location.reload();
         }else{
-          player.saldo = value;
+          if(value <= 2000){
+            swal("Minimal Isi Saldo Rp 2000", "", "warning");
+            sessionStorage.removeItem('token');
+            setTimeout(()=>{
+              location.reload();
+            },1000);
+          }else{
+            player.saldo = value;
+          }
         }
       });
     } else {

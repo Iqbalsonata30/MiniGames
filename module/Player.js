@@ -86,8 +86,16 @@ class Player {
                   sessionStorage.removeItem('token');
                   location.reload();
                 }else{
-                  saldo.textContent = `Rp.${value}`;
-                  this.saldo = value;
+                  if(saldo.textContent <= 2000){
+                    swal("Minimal Isi Saldo Rp 2000", "", "warning");
+                    sessionStorage.removeItem('token');
+                    setTimeout(()=>{
+                      location.reload();
+                    },1000);
+                  }else{
+                    saldo.textContent = `Rp.${value}`;
+                    this.saldo = value;
+                  }
                 }
               });
             } else {
@@ -127,8 +135,16 @@ class Player {
                   sessionStorage.removeItem('token');
                   location.reload();
                 }else{
-                  saldo.textContent = `Rp.${value}`;
-                  this.saldo = value;
+                  if(saldo.textContent <= 2000){
+                    swal("Minimal Isi Saldo Rp 2000", "", "warning");
+                    sessionStorage.removeItem('token');
+                    setTimeout(()=>{
+                      location.reload();
+                    },1000);
+                  }else{
+                    saldo.textContent = `Rp.${value}`;
+                    this.saldo = value;
+                  }
                 }
               });
             } else {
