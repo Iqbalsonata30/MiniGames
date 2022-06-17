@@ -4,6 +4,7 @@ class Player {
     this._isWin = false;
     this._gacha = [];
     this._Score = 0;
+    this._saldo = sessionStorage.getItem('saldo')
     this._normalRolling = 'normal';
     this._quickRolling = 'quick';
   }
@@ -15,7 +16,12 @@ class Player {
   get token() {
     return this._token;
   }
-
+  set saldo(_saldo){
+    return (this._saldo = _saldo);
+  }
+  get saldo(){
+    return this._saldo;
+  }
   set register(_username) {
     const rand = ~~(Math.random() * _username.length * 100);
     const session = sessionStorage.setItem("token", `${_username}@${rand}`);
@@ -48,6 +54,7 @@ class Player {
 
   get normal() {
     const rolling = setInterval(() => {
+      saldo.textContent = `Rp.`+(`${this.saldo}`-2000);
       this.gacha = default_option;
       nilai.textContent = this._Score;
       box1.textContent = this.gacha[0];
@@ -58,6 +65,30 @@ class Player {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
+        this.saldo = this.saldo - 2000;
+        if(this.saldo == 0 || this.saldo == 1000){
+          swal({
+            title: "Saldo anda habis !",
+            text: "Silahkan deposit kembali jika ingin bermain kembali !!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Mengisi Saldo:", {
+                content: 'input',
+              })
+              .then((value) => {
+                return sessionStorage.setItem('saldo',value);
+              });
+            } else {
+              this._token = sessionStorage.removeItem("token");
+              location.reload();
+            }
+          });
+          this.saldo = saldoUlang;
+        }
         this._quickRolling = 'quick';
         this.scorePoin = box;
         this.winCheck = box;
@@ -68,6 +99,29 @@ class Player {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
+        this.saldo = sessionStorage.setItem('saldo',this._saldo - 2000);
+        if(this.saldo == 0 || this.saldo == 1000){
+          swal({
+            title: "Saldo anda habis !",
+            text: "Silahkan deposit kembali jika ingin bermain kembali !!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Mengisi Saldo:", {
+                content: "input",
+              })
+              .then((value) => {
+                return sessionStorage.setItem('saldo',value);
+              });
+            } else {
+              this._token = sessionStorage.removeItem("token");
+              location.reload();
+            }
+          });
+        }
         this._quickRolling = 'quick';
         this.scorePoin = box;
         this.winCheck = box;
@@ -82,14 +136,14 @@ class Player {
     if (box[0] == box[1] && box[0] == box[2]) {
       return (this._isWin = true);
     } else {
-      if (this.scorePoin < 1) {
+      if (this.scorePoin < 1 && this.saldo != -2000 ) {
         swal({
           title: "Anda Kalah Cuy!",
-          text: "Silahkan Depo lagi!",
+          text: "Silahkan coba lagi !!",
           icon: "error",
           button: "Yes",
         });
-      } else {
+      } else if (this.scorePoin >= 1 && this.saldo != -2000) {
         swal({
           title: "Score Anda Masih : " + this.scorePoin,
           text: "Semangat ! Coba lagi.",
@@ -123,9 +177,7 @@ class Player {
       .then((x) => x.json())
       .then((data) => {
         const img = new Image(200, 200);
-        let imageDetail = document.createElement('h1');
         let slideImage = document.getElementsByClassName('swiper-slide');
-        imageDetail.classList.add('namaGambar');
         img.setAttribute('class','swiper-slide');
         img.src = data.image_link;
 
@@ -133,16 +185,20 @@ class Player {
           slideImage[i].style.backgroundImage = 'url('+img.src+')';
           slideImage[i].style.backgroundSize = 'cover';
           slideImage[i].style.backgroundRepeat = 'no-repeat';
+          slideImage[i].textContent = data.name;
+          slideImage[i].style.fontSize = '30px';
+          slideImage[i].style.color ='white';
         };
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
         setTimeout(() => {
           location.href = "#reward";
-        }, 1000);
+        }, 500);
       });
   }
 
   logout() {
-    return (this.token = sessionStorage.removeItem("token"));
+   this.token = sessionStorage.removeItem("token");
+   this.saldo = sessionStorage.removeItem("saldo");
   }
 }
