@@ -11,6 +11,8 @@ const navbarName = document.getElementsByClassName("navigation")[0];
 const startNavbar = document.getElementsByClassName("nav")[1];
 const rewardNavbar = document.getElementsByClassName("nav")[2];
 let imgReward = document.getElementById("imgReward");
+let filSaldo = document.getElementById('dftr');
+let saldo = document.getElementById("saldo");
 let nilai = document.getElementById("nilai");
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
@@ -27,7 +29,32 @@ function resetting() {
   goTopSection.style.display = "none";
   rewardSection.style.display = "none";
 }
-
+filSaldo.addEventListener('click',()=>{
+  swal({
+    title: "Silahkan Deposit terlebih dahulu !",
+    icon: "info",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Mengisi Saldo: \n 1x Spin = Rp.2000\n Jika saldo kurang dari 2000 akan dianggap habis", {
+        content: "input",
+      })
+      .then((value) => {
+        let tipeSaldo = parseInt(value);
+        if(isNaN(tipeSaldo) || value == ''){
+          sessionStorage.removeItem('token');
+          location.reload();
+        }else{
+          player.saldo = value;
+        }
+      });
+    } else {
+      location.reload();
+    }
+  });
+})
 function clearing() {
   username.value = "";
   registerForm.style.display = "none";
