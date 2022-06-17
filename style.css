@@ -63,6 +63,7 @@ section {
 
 .imageWrapper {
   display: flex;
+<<<<<<< HEAD
   flex-direction:column;
   justify-content: center;
   align-content:center;
@@ -84,6 +85,30 @@ section {
   align-items:center;
   width:200px;
   height:200px;
+=======
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 2px;
+}
+
+.swiper {
+  width: 600px;
+  height: 400px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 }
 
 .wlc {
@@ -110,10 +135,18 @@ section {
   border: 5px black;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
 }
+<<<<<<< HEAD
 .boxStart{
   display:flex;
   justify-content:space-between;
   align-items:center;
+=======
+
+.boxStart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 }
 
 .score {
@@ -121,17 +154,28 @@ section {
   border: 2px solid shadow;
   width: 200px;
   height: 200px;
+<<<<<<< HEAD
   margin:0 10px;
   padding-top: 100px;
 }
+=======
+  padding-top: 100px;
+}
+
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 .saldo {
   text-align: center;
   border: 2px solid shadow;
   width: 200px;
   height: 200px;
   padding-top: 100px;
+<<<<<<< HEAD
   margin:0 10px;
 }
+=======
+}
+
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 #saldo {
   font-size: 30px;
   color: azure;
@@ -244,7 +288,10 @@ h1 {
 }
 
 /* Responsive Breakpoint */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 @media (max-width: 600px) {
   .contain {
     background-image: url(zeus.jpg);
@@ -275,6 +322,7 @@ h1 {
     margin-top: 5px;
     margin-left: 150px;
   }
+<<<<<<< HEAD
   .swiper{
     width: 80%;
     height:350px;
@@ -289,6 +337,36 @@ h1 {
     align-items:center;
     width:200px;
     height:200px;
+=======
+
+  .score {
+    padding-top: 96.5px;
+  }
+
+  #nilai {
+    font-size: 22px;
+  }
+
+  #saldo {
+    font-size: 22px;
+  }
+
+  .swiper {
+    width: 80%;
+    height: 350px;
+    padding: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: 10px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
   }
 
 
@@ -303,6 +381,7 @@ h1 {
   .startButton {
     margin: 0 20px;
     padding: 20px;
+<<<<<<< HEAD
     border: none;
     background-color: whitesmoke;
     color: black;
@@ -311,10 +390,90 @@ h1 {
     height: 80px;
     cursor: pointer;
     border-radius: 10px;
+=======
+    background-color: whitesmoke;
+    font-size: 1em;
+    width: 180px;
+    height: 80px;
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
   }
 
   h1 {
     font-size: 1.4em;
   }
 
+<<<<<<< HEAD
+=======
+}
+
+@media only screen and (max-width: 768px) and (orientation : landscape) {
+  .wlc {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 17px;
+
+  }
+
+  .score {
+    padding-top: 55px;
+    border: 2px solid shadow;
+    height: auto;
+    width: 170px;
+  }
+
+  .saldo {
+    padding-top: 55px;
+    border: 2px solid shadow;
+    height: auto;
+    width: 170px;
+  }
+
+  .scr {
+    font-size: 23px;
+    color: whitesmoke;
+  }
+
+  #nilai {
+    font-size: 23px;
+    color: whitesmoke;
+  }
+
+  #saldo {
+    font-size: 23px;
+    color: whitesmoke;
+  }
+
+  .box {
+    font-size: 3.5em;
+    margin: 10px 10px;
+    padding: 10px;
+    border: 5px solid whitesmoke;
+    border-radius: 5px;
+  }
+
+  .startButton {
+    margin: 0 15px;
+    padding: 10px;
+    border: none;
+    font-size: 1em;
+    width: 150px;
+    height: 60px;
+  }
+
+  .gamewrapper {
+    height: 40%;
+  }
+
+  .titleReward {
+    font-size: 23px;
+    margin-top: 40px;
+  }
+
+  .swiper {
+    width: 60%;
+    height: 60%;
+  }
+>>>>>>> 4d74310bcba92536a09da8f5dd5d406131ca814a
 }
