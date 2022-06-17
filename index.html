@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <!--font-->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=New+Rocker&family=Oswald:wght@300&display=swap"
+    rel="stylesheet">
+
+  <title>MiniGames by Group 7</title>
+</head>
+
+<body>
+  <section id="home">
+    <div class="contain">
+      <div class="navwrapper">
+        <ul class="navigation">
+          <li class="nav">
+            <a href="#home" class="navlink">HOME</a>
+          </li>
+          <li class="nav">
+            <a href="#start" class="navlink" id="startNavbar">START</a>
+          </li>
+          <li class="nav">
+            <a href="#reward" class="navlink" id="rewardNavbar">REWARD</a>
+          </li>
+        </ul>
+      </div>
+      <div class="contentwrapper">
+        <h1 class="wlc">Welcome To The Game Anak Bapak</h1>
+        <div class="title" id="title"></div>
+        <div id="registerForm">
+          <input type="text" class="regis" placeholder="username" id="username" />
+          <input type="password" class="paswrd " placeholder="password" id="password" />
+          <button type="button" class="btn btn-light " onclick="register()" id="dftr">Register
+          </button>
+        </div>
+        <button type="button" class="btn btn-light" onclick="logout()" id="logoutButton">Logout</button>
+      </div>
+    </div>
+  </section>
+  <section id="start">
+    <div class="red">
+      <div class="boxStart">
+        <div class="score">
+          <h1 class="scr">Score</h1>
+          <div id="nilai"></div>
+        </div>
+        <div class="saldo">
+          <h1 class="scr">Saldo</h1>
+          <div id="saldo"></div>
+        </div>
+      </div>
+      <div class="gamewrapper">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+      </div>
+      <div class="buttonwrapper">
+        <button class="startButton" id="button1" onclick="normal('normal')">Normal Spin</button>
+        <button class="startButton" id="stop" onclick="quick('Quick')">Quick Spin</button>
+      </div>
+    </div>
+  </section>
+  <section id="reward">
+    <div class="blue">
+      <div class="imageWrapper">
+        <h1 class="titleReward">👇REWARD BUAT ANDA👇</h1>
+        <div class="swiper">
+          <div class="swiper-wrapper " id="imgReward">
+            <div class="swiper-slide"></div>
+          </div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+  </section>
+  <div class="top" id="top" onclick="directing('#home',200)">☝</div>
+  <script>
+    function directing() {
+      location.href = "#home"
+    }
+  </script>
+  <script src="module/Player.js"></script>
+  <script src="init.js"></script>
+  <script src="module/Utilts.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
+  <script>
+    gsap.registerPlugin(TextPlugin);
+    gsap.from('.nav', { duration: 2, y: '-100%', opacity: 0, ease: 'bounce' });
+    gsap.from('.wlc', { duration: 1.5, x: 50, opacity: 0, delay: 1, ease: 'back' });
+    gsap.to('.title', { duration: 2, delay: 1.5, text: 'Ikan Lele Ikan Sepat, Daftar Cepat!' })
+  </script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+  </script>
+</body>
+
+</html>
