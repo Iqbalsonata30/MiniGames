@@ -66,9 +66,8 @@ class Player {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
         this.saldo = this.saldo - 2000;
-        if(this.saldo < 2000){
+        if(this.saldo < 2000 ){
             saldo.textContent = 0;
-          
           swal({
             title: "Saldo anda habis !",
             text: "Silahkan deposit kembali jika ingin bermain kembali !!",
@@ -88,7 +87,7 @@ class Player {
                   location.reload();
                 }else{
                   saldo.textContent = `Rp.${value}`;
-                  player.saldo = value;
+                  this.saldo = value;
                 }
               });
             } else {
@@ -129,7 +128,7 @@ class Player {
                   location.reload();
                 }else{
                   saldo.textContent = `Rp.${value}`;
-                  player.saldo = value;
+                  this.saldo = value;
                 }
               });
             } else {
@@ -152,14 +151,14 @@ class Player {
     if (box[0] == box[1] && box[0] == box[2]) {
       return (this._isWin = true);
     } else {
-      if (this.scorePoin < 1 && this.saldo != 0 ) {
+      if (this.scorePoin < 1 && this.saldo >= 2000 ) {
         swal({
           title: "Anda Kalah Cuy!",
           text: "Silahkan coba lagi !!",
           icon: "error",
           button: "Yes",
         });
-      } else if (this.scorePoin >= 1 && this.saldo != 0) {
+      } else if (this.scorePoin >= 1 && this.saldo >= 2000) {
         swal({
           title: "Score Anda Masih : " + this.scorePoin,
           text: "Semangat ! Coba lagi.",
@@ -214,6 +213,6 @@ class Player {
   }
 
   logout() {
-   this.saldo = sessionStorage.removeItem("saldo");
+   this._token = sessionStorage.removeItem("token");
   }
 }
