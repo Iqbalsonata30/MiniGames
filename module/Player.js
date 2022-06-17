@@ -193,9 +193,8 @@ class Player {
       .then((data) => {
         const img = new Image(200, 200);
         let slideImage = document.getElementsByClassName('swiper-slide');
-        img.setAttribute('class','swiper-slide');
-        img.src = data.image_link;
 
+        img.src = data.image_link;
         for(let i =0;i<=this._Score;i++){
           slideImage[i].style.backgroundImage = 'url('+img.src+')';
           slideImage[i].style.backgroundSize = 'cover';
