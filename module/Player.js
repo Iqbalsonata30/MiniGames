@@ -123,16 +123,15 @@ class Player {
       .then((x) => x.json())
       .then((data) => {
         const img = new Image(200, 200);
-        let imageDetail = document.createElement('h1');
         let slideImage = document.getElementsByClassName('swiper-slide');
-        imageDetail.classList.add('namaGambar');
-        img.setAttribute('class','swiper-slide');
         img.src = data.image_link;
-
         for(let i =0;i<=this._Score;i++){
           slideImage[i].style.backgroundImage = 'url('+img.src+')';
           slideImage[i].style.backgroundSize = 'cover';
           slideImage[i].style.backgroundRepeat = 'no-repeat';
+          slideImage[i].textContent = data.name;
+          slideImage[i].style.fontSize = '30px';
+          slideImage[i].style.color ='white';
         };
         rewardSection.style.display = "block";
         rewardNavbar.style.display = "block";
