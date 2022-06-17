@@ -47,7 +47,7 @@ filSaldo.addEventListener('click',()=>{
           sessionStorage.removeItem('token');
           location.reload();
         }else{
-          if(value <= 2000){
+          if(value <= 1999){
             swal("Minimal Isi Saldo Rp 2000", "", "warning");
             sessionStorage.removeItem('token');
             setTimeout(()=>{

@@ -86,7 +86,7 @@ class Player {
                   sessionStorage.removeItem('token');
                   location.reload();
                 }else{
-                  if(saldo.textContent <= 2000){
+                  if(value <= 1999){
                     swal("Minimal Isi Saldo Rp 2000", "", "warning");
                     sessionStorage.removeItem('token');
                     setTimeout(()=>{
@@ -135,7 +135,7 @@ class Player {
                   sessionStorage.removeItem('token');
                   location.reload();
                 }else{
-                  if(saldo.textContent <= 2000){
+                  if(value <= 1999){
                     swal("Minimal Isi Saldo Rp 2000", "", "warning");
                     sessionStorage.removeItem('token');
                     setTimeout(()=>{
