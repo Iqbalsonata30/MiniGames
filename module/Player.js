@@ -4,7 +4,7 @@ class Player {
     this._isWin = false;
     this._gacha = [];
     this._Score = 0;
-    this._saldo = sessionStorage.getItem('saldo')
+    this._saldo = 0;
     this._normalRolling = 'normal';
     this._quickRolling = 'quick';
   }
@@ -66,7 +66,9 @@ class Player {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
         this.saldo = this.saldo - 2000;
-        if(this.saldo == 0 || this.saldo == 1000){
+        if(this.saldo < 2000){
+            saldo.textContent = 0;
+          
           swal({
             title: "Saldo anda habis !",
             text: "Silahkan deposit kembali jika ingin bermain kembali !!",
@@ -80,14 +82,20 @@ class Player {
                 content: 'input',
               })
               .then((value) => {
-                return sessionStorage.setItem('saldo',value);
+                let tipeSaldo = parseInt(value);
+                if(isNaN(tipeSaldo) || value == ''){
+                  sessionStorage.removeItem('token');
+                  location.reload();
+                }else{
+                  saldo.textContent = `Rp.${value}`;
+                  player.saldo = value;
+                }
               });
             } else {
               this._token = sessionStorage.removeItem("token");
               location.reload();
             }
           });
-          this.saldo = saldoUlang;
         }
         this._quickRolling = 'quick';
         this.scorePoin = box;
@@ -99,10 +107,11 @@ class Player {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
-        this.saldo = sessionStorage.setItem('saldo',this._saldo - 2000);
-        if(this.saldo == 0 || this.saldo == 1000){
-          swal({
-            title: "Saldo anda habis !",
+        this.saldo = this.saldo - 2000;
+        if(this.saldo < 2000){
+            saldo.textContent = 0;
+            swal({
+              title: "Saldo anda habis !",
             text: "Silahkan deposit kembali jika ingin bermain kembali !!",
             icon: "warning",
             buttons: true,
@@ -114,7 +123,14 @@ class Player {
                 content: "input",
               })
               .then((value) => {
-                return sessionStorage.setItem('saldo',value);
+                let tipeSaldo = parseInt(value);
+                if(isNaN(tipeSaldo) || value == ''){
+                  sessionStorage.removeItem('token');
+                  location.reload();
+                }else{
+                  saldo.textContent = `Rp.${value}`;
+                  player.saldo = value;
+                }
               });
             } else {
               this._token = sessionStorage.removeItem("token");
@@ -136,14 +152,14 @@ class Player {
     if (box[0] == box[1] && box[0] == box[2]) {
       return (this._isWin = true);
     } else {
-      if (this.scorePoin < 1 && this.saldo != -2000 ) {
+      if (this.scorePoin < 1 && this.saldo != 0 ) {
         swal({
           title: "Anda Kalah Cuy!",
           text: "Silahkan coba lagi !!",
           icon: "error",
           button: "Yes",
         });
-      } else if (this.scorePoin >= 1 && this.saldo != -2000) {
+      } else if (this.scorePoin >= 1 && this.saldo != 0) {
         swal({
           title: "Score Anda Masih : " + this.scorePoin,
           text: "Semangat ! Coba lagi.",
@@ -198,7 +214,6 @@ class Player {
   }
 
   logout() {
-   this.token = sessionStorage.removeItem("token");
    this.saldo = sessionStorage.removeItem("saldo");
   }
 }

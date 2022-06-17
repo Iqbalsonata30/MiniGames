@@ -38,12 +38,17 @@ filSaldo.addEventListener('click',()=>{
   })
   .then((willDelete) => {
     if (willDelete) {
-      swal("Mengisi Saldo:", {
+      swal("Mengisi Saldo: \n 1x Spin = Rp.2000\n Jika saldo kurang dari 2000 akan dianggap habis", {
         content: "input",
       })
       .then((value) => {
-        sessionStorage.setItem('saldo',value);
-        location.reload();
+        let tipeSaldo = parseInt(value);
+        if(isNaN(tipeSaldo) || value == ''){
+          sessionStorage.removeItem('token');
+          location.reload();
+        }else{
+          player.saldo = value;
+        }
       });
     } else {
       location.reload();
