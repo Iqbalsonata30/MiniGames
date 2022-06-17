@@ -118,7 +118,7 @@ section {
 
 .score {
   text-align: center;
-  border: 2px solid red; /* shadow */
+  border: 2px solid shadow;
   width: 200px;
   height: 200px;
   margin:0 10px;
@@ -126,7 +126,7 @@ section {
 }
 .saldo {
   text-align: center;
-  border: 2px solid red;
+  border: 2px solid shadow;
   width: 200px;
   height: 200px;
   padding-top: 100px;
