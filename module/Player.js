@@ -5,6 +5,7 @@ class Player {
     this._gacha = [];
     this._Score = 0;
     this._saldo = 0;
+    this._biayaSpin = 2000;
     this._normalRolling = 'normal';
     this._quickRolling = 'quick';
   }
@@ -54,7 +55,8 @@ class Player {
 
   get normal() {
     const rolling = setInterval(() => {
-      saldo.textContent = `Rp.`+(`${this.saldo}`-2000);
+      saldo.textContent = `Rp.`+(`${this.saldo}`-this._biayaSpin);
+      console.log(parseInt(saldo.textContent));
       this.gacha = default_option;
       nilai.textContent = this._Score;
       box1.textContent = this.gacha[0];
@@ -65,8 +67,8 @@ class Player {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
-        this.saldo = this.saldo - 2000;
-        if(this.saldo < 2000 ){
+        this.saldo = this.saldo - this._biayaSpin;
+        if(this.saldo < this._biayaSpin ){
             saldo.textContent = 0;
           swal({
             title: "Saldo anda habis !",
@@ -114,8 +116,8 @@ class Player {
       setTimeout(() => {
         clearInterval(rolling);
         const box = [box1.textContent, box2.textContent, box3.textContent];
-        this.saldo = this.saldo - 2000;
-        if(this.saldo < 2000){
+        this.saldo = this.saldo - this._biayaSpin;
+        if(this.saldo < this._biayaSpin){
             saldo.textContent = 0;
             swal({
               title: "Saldo anda habis !",
@@ -227,6 +229,6 @@ class Player {
   }
 
   logout() {
-   this._token = sessionStorage.removeItem("token");
+  this._token = sessionStorage.removeItem("token");
   }
 }
